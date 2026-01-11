@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurin Faqihah - Profile</title>
+    <style>
+    :root {
+        --dark: #0F1939;
+        --primary: #26428B;
+        --secondary: #516AC8;
+        --accent: #E3AF64;
+        --light: #F8F7F5;
+        --soft: #FAEBD7;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+        color: var(--dark);
+        min-height: 100vh;
+        padding-top: 70px;
+        line-height: 1.6;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: var(--light);
+        box-shadow: 0 2px 10px rgba(15, 25, 57, 0.15);
+        z-index: 1000;
+    }
+
+    .nav-container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-brand {
+        font-size: 1.4em;
+        font-weight: bold;
+        color: var(--primary);
+    }
+
+    .nav-menu {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: var(--primary);
+        font-weight: 500;
+        padding: 6px 12px;
+        transition: 0.3s;
+    }
+
+    .nav-menu a:hover {
+        background-color: #F8F7F5;
+        border-bottom: 5px solid var(--accent);
+        color: var(--accent);
+    }
+
+    .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5em;
+        color: var(--primary);
+        cursor: pointer;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    header {
+        text-align: center;
+        color: var(--light);
+        padding: 60px 20px 40px;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--secondary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 60px;
+        margin: auto;
+        margin-bottom: 20px;
+        border: 5px solid var(--light);
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .tagline {
+        margin-top: 10px;
+        font-size: 1.2em;
+        opacity: 0.95;
+        margin-bottom: 15px;
+    }
+
+    .contact-info {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        font-size: 0.95em;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .card {
+        background: var(--light);
+        border-radius: 16px;
+        padding: 35px;
+        margin-bottom: 25px;
+        box-shadow: 0 10px 30px rgba(15, 25, 57, 0.15);
+        scroll-margin-top: 90px;
+    }
+
+    .card:hover {
+        transform: translateY(-3px);
+        transition: 0.3s;
+    }
+
+    h2 {
+        color: var(--primary);
+        border-bottom: 3px solid var(--accent);
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        font-size: 1.9em;
+    }
+
+    h3 {
+        color: var(--accent);
+        margin-bottom: 5px;
+        font-size: 1.3em;
+    }
+
+    .profile-text {
+        line-height: 1.8;
+        color: var(--dark);
+        text-align: justify;
+    }
+
+    .education-item,
+    .experience-item,
+    .project-item,
+    .skill-category,
+    .leadership-item {
+        background: var(--light);
+        border-left: 5px solid var(--accent);
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .edu-title,
+    .experience-title,
+    .project-title,
+    .leadership-title {
+        font-weight: bold;
+        color: var(--dark);
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+
+    .edu-institution,
+    .experience-company,
+    .project-tech,
+    .leadership-role {
+        color: var(--secondary);
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .experience-date,
+    .edu-details {
+        font-style: italic;
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    .experience-desc {
+        margin-top: 10px;
+    }
+
+    ul {
+        margin-left: 20px;
+    }
+
+    li {
+        margin-bottom: 8px;
+        color: #555;
+    }
+
+    .experience-desc ul,
+    .project-item ul,
+    .leadership-desc ul {
+        margin-top: 8px;
+    }
+
+    .leadership-desc {
+        color: #555;
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+
+     .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .skill-category h4 {
+        color: var(--primary);
+        margin-bottom: 12px;
+        font-size: 1.1em;
+    }
+
+    .skill-category ul {
+        list-style: none;
+    }
+
+    .skill-category li {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: 6px 0;
+        color: #555;
+    }
+
+    .skill-category li:last-child {
+        border-bottom: none;
+    }
+
+    .skill-level {
+        float: right;
+        font-size: 0.85em;
+        font-weight: 600;
+        color: var(--primary);
+    }
+
+    .projects {
+        margin-top: 20px;
+    }
+
+    .leadership-section {
+        margin-top: 20px;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .social-btn {
+        background: var(--primary);
+        color: var(--light);
+        padding: 12px 28px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+        border: 2px solid var(--primary);
+    }
+
+    .social-btn:hover {
+        background: var(--accent);
+        color: var(--dark);
+        border-color: var(--accent);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(227, 175, 100, 0.3);
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px;
+        color: var(--light);
+        margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2em;
+        }
+
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-info {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-toggle {
+            display: block;
+        }
+
+        .nav-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--light);
+            flex-direction: column;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease;
+            gap: 0;
+            padding: 0;
+        }
+
+        .nav-menu.active {
+            max-height: 500px;
+        }
+
+        .nav-menu a {
+            color: var(--primary);
+            padding: 15px 20px;
+            border-radius: 0;
+        }
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">NF</div>
+            <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#profile" onclick="closeMenu()">Profile</a></li>
+                <li><a href="#education" onclick="closeMenu()">Education</a></li>
+                <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#leadership" onclick="closeMenu()">Leadership</a></li>
+                <li><a href="#connect" onclick="closeMenu()">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <div class="profile-img">👩‍💻</div>
+            <h1>Nurin Faqihah Binti Mohd Zamri</h1>
+            <p class="tagline">Web Developer | Quality Assurance | Information Systems Engineering</p>
+            <div class="contact-info">
+                <div class="contact-item">📍 Seri Kembangan, Selangor</div>
+                <div class="contact-item">📧 nurinfaqihahzmri@gmail.com</div>
+                <div class="contact-item">📱 +6011-4013 2691</div>
+            </div>
+        </header>
+
+        <div class="card" id="profile">
+            <h2>Profile</h2>
+            <p class="profile-text">
+                I am currently an intern in the Information Systems Engineering field with hands-on experience in both web development and software testing. 
+                During my internship, I have contributed to the development and support of web-based systems using technologies such as <strong>Java, HTML, CSS, SQL, 
+                and various database management tools</strong>. My responsibilities include implementing backend logic for data processing and generating downloadable 
+                files to support system functionality and reporting.
+            </p>
+            <p class="profile-text" style="margin-top: 15px;">
+                In addition to development tasks, I actively participate in quality assurance activities, including <strong>functional testing, regression testing, 
+                and UI testing</strong>, to ensure system reliability and performance. I am experienced in creating and executing test cases, documenting test results, 
+                and reporting defects clearly to facilitate effective issue resolution and collaboration with development teams.
+            </p>
+            <p class="profile-text" style="margin-top: 15px;">
+                I am seeking a <strong>Web Developer or Tester / Quality Assurance position</strong> where I can contribute my technical skills, attention to detail, 
+                and collaborative mindset while continuing to grow professionally in a dynamic, technology-driven environment. I am available to start work from 
+                <strong>March 2026</strong>.
+            </p>
+        </div>
+
+        <div class="card" id="education">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <div class="edu-title">Bachelor of Information System (Hons.) Information System Engineering</div>
+                <div class="edu-institution">University of Technology MARA (UiTM) Jasin Melaka</div>
+                <div class="edu-details">CGPA: 3.32 | 2022 - Present</div>
+            </div>
+
+            <div class="education-item">
+                <div class="edu-title">Life Science</div>
+                <div class="edu-institution">Johor Matriculation College</div>
+                <div class="edu-details">CGPA: 3.46 | 2020 - 2022</div>
+            </div>
+
+            <div class="education-item">
+                <div class="edu-title">Sijil Pelajaran Malaysia (SPM)</div>
+                <div class="edu-institution">Sekolah Menengah Kebangsaan Air Tawar, Kota Tinggi, Johor</div>
+                <div class="edu-details">5A | 2014 - 2019</div>
+            </div>
+
+            <div class="education-item">
+                <div class="edu-title">Malaysian University English Test</div>
+                <div class="edu-details">Band 4 | 2021</div>
+            </div>
+        </div>
+
+        <div class="card" id="experience">
+            <h2>Internship Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-title">Internship Student</div>
+                <div class="experience-company">ABS Innovations Sdn. Bhd.</div>
+                <div class="experience-date">September 2025 - Present</div>
+                
+                <div class="experience-desc">
+                    <h3>Quality Assurance</h3>
+                    <p><em>System: Plantation Micro Macro Program</em></p>
+                    <ul>
+                        <li>Performed functional testing, regression testing, and UI testing to ensure system stability and quality</li>
+                        <li>Created and executed test cases based on system requirements and documented all findings clearly</li>
+                        <li>Identified bugs, prepared detailed bug reports, and collaborated with developers to verify fixes</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 20px;">Software Developer</h3>
+                    <p><em>System: Plantation Micro Macro Program</em></p>
+                    <p><strong>Project Library:</strong> Java, HTML, CSS, HeidiSQL</p>
+                    <ul>
+                        <li>Implemented backend logic to generate downloadable CSV files using optimized SQL queries and data processing functions</li>
+                        <li>Processed and formatted large datasets for export while optimizing performance to reduce file generation time</li>
+                        <li>Tested download output accuracy, file integrity, and compatibility across multiple browsers and devices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="projects">
+            <h2>Academic Projects</h2>
+            <div class="projects">
+                
+                <div class="project-item">
+                    <div class="project-title">Final Year Project (FYP) - Real Estate Management System</div>
+                    <div class="project-tech">Tech Stack: Python, HTML, CSS, JavaScript, PostgreSQL, Flask</div>
+                    <ul>
+                        <li>A management system for real estate with centralized platform, enhancing property information access experience and automation in generating legal documents</li>
+                        <li>Development Methodology: Waterfall</li>
+                        <li>Documentation: Software Requirement Specification (SRS), Software Design Documentation (SDD)</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Tadika Management System</div>
+                    <div class="project-tech">Tech Stack: Java, HTML, CSS, MySQL, Heroku, Oracle</div>
+                    <ul>
+                        <li>A management system for Tadika Ummu Al-Amin with centralized platform for registration and attendance</li>
+                        <li>Development Methodology: Waterfall</li>
+                        <li>Documentation: SRS, SDD, Software Test Description (STD), Software Test Result (STR), Requirement Management (REQM): Project Management Process Area at Maturity Level 2</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card" id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <ul>
+                        <li>Java <span class="skill-level">Intermediate</span></li>
+                        <li>Python <span class="skill-level">Intermediate</span></li>
+                        <li>SQL <span class="skill-level">Intermediate</span></li>
+                        <li>JavaScript <span class="skill-level">Intermediate</span></li>
+                        <li>Kotlin <span class="skill-level">Intermediate</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Database Management</h4>
+                    <ul>
+                        <li>Oracle <span class="skill-level">Intermediate</span></li>
+                        <li>MySQL <span class="skill-level">Intermediate</span></li>
+                        <li>PostgreSQL <span class="skill-level">Intermediate</span></li>
+                        <li>HeidiSQL <span class="skill-level">Intermediate</span></li>
+                        <li>Microsoft Access <span class="skill-level">Intermediate</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Web Development</h4>
+                    <ul>
+                        <li>HTML <span class="skill-level">Intermediate</span></li>
+                        <li>CSS <span class="skill-level">Intermediate</span></li>
+                        <li>Flask <span class="skill-level">Intermediate</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Software Development</h4>
+                    <ul>
+                        <li>Object-Oriented Programming <span class="skill-level">Intermediate</span></li>
+                        <li>Waterfall Methodologies <span class="skill-level">Intermediate</span></li>
+                        <li>IoT <span class="skill-level">Basic</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Information Systems</h4>
+                    <ul>
+                        <li>Systems Analysis & Design <span class="skill-level">Intermediate</span></li>
+                        <li>Requirements Gathering <span class="skill-level">Intermediate</span></li>
+                        <li>Business Process Modelling <span class="skill-level">Intermediate</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Creative Tools</h4>
+                    <ul>
+                        <li>Adobe Photoshop <span class="skill-level">Intermediate</span></li>
+                        <li>Adobe Animation <span class="skill-level">Intermediate</span></li>
+                        <li>Canva <span class="skill-level">Intermediate</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Tools & Platforms</h4>
+                    <ul>
+                        <li>Visual Studio Code</li>
+                        <li>Android Studio</li>
+                        <li>BlueJ & Eclipse</li>
+                        <li>Microsoft Office Suite</li>
+                        <li>Google Workspace</li>
+                        <li>Draw.io</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <ul>
+                        <li>Problem Solving</li>
+                        <li>Critical Thinking</li>
+                        <li>Leadership</li>
+                        <li>Communication</li>
+                        <li>Collaboration</li>
+                        <li>Work Under Pressure</li>
+                        <li>Multitasking</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card" id="leadership">
+            <h2>Leadership & Involvement</h2>
+            <div class="leadership-section">
+                
+                <h3>Student Secretariat - SMKPPIM UiTM Jasin (2023-2024)</h3>
+                
+                <div class="leadership-item">
+                    <div class="leadership-role">Vice President I - SMKPPIM UiTM Jasin</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Oversaw organizational planning, student event execution, and official documentation, ensuring smooth operations and effective communication.</li>
+                            <li>Managed social media content and corporate relations, including stakeholder collaboration and coordination to boost engagement and support.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Emcee, Floor Manager & Head of Organizing Committee</div>
+                    <div class="leadership-title">Campus Election Council 2024</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Served as Emcee, hosting and facilitating the smooth flow of campus election events and formal proceedings</li>
+                            <li>Acted as Floor Manager, overseeing event logistics, coordinating with technical teams, and ensuring timely execution</li>
+                            <li>Contributed as an Organizing Committee Member, assisting in planning, setup, and management of election-related activities</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Head of Protocol Committee</div>
+                    <div class="leadership-title">Codeathon UiTM Se-Malaysia 2024</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Led the protocol team in executing formal event procedures, ensuring adherence to ceremonial standards and smooth event flow</li>
+                            <li>Managed VIP arrangements and coordinated directly with invited juries and guests to ensure clear communication and professionalism</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Head of Protocol & Floor Manager</div>
+                    <div class="leadership-title">Final Year Project Exhibition KPPIM (March - August 2024)</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Managed event protocols and coordinated formal proceedings, including VIP arrangements and session transitions</li>
+                            <li>Supervised on-ground operations and logistics to ensure smooth event execution and coordination among committees</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Event Director & Floor Manager</div>
+                    <div class="leadership-title">Final Year Project Exhibition KPPIM (October 2024 - February 2025)</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Directed overall planning, execution, and management of the exhibition, overseeing multiple committees and key event components</li>
+                            <li>Handled real-time floor operations, ensuring seamless coordination of technical, protocol, and participant-related activities</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Facilitator</div>
+                    <div class="leadership-title">Perkampungan Sains Tulen SPM 2024 SMKA Tun Perak</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Facilitated science and mathematics learning activities for SPM 2024 students</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px;">Debate and Public Speaking Club (2022-2023)</h3>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">President - Debate and Public Speaking Club</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Led the club's strategic direction, activities, and member development in debate and public speaking</li>
+                            <li>Organized training sessions, competitions, and collaborations to enhance members' critical thinking and communication skills</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Participant</div>
+                    <div class="leadership-title">Vice Chancellor Cup Debate UiTM Se-Malaysia: Pulau Pinang 2023</div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Event Director</div>
+                    <div class="leadership-title">Pertandingan Pengucapan Awam UiTM Jasin (PUJa) 2023</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Spearheaded the planning, coordination, and execution of the university-level public speaking competition involving participants from various faculties</li>
+                            <li>Managed event logistics, protocol, and team delegation to ensure smooth and impactful program delivery</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px;">Branch & Campus Initiatives</h3>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Proposal Collection and Hall Preparation Bureau</div>
+                    <div class="leadership-title">Student Parliament Secretariat, UiTM Melaka Branch 2024</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Collected, reviewed, and organized student proposals and resolutions to be presented during parliamentary sessions</li>
+                            <li>Coordinated hall setup and technical arrangements to ensure smooth and formal parliamentary proceeding</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Participant</div>
+                    <div class="leadership-title">Vice Chancellor Cup Debate UiTM Se-Malaysia: Sarawak 2023</div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Student Leader</div>
+                    <div class="leadership-title">Minggu Destini Siswa (MDS) UiTM 2023</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Guided and supported new students during orientation week</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Committee</div>
+                    <div class="leadership-title">Industrial Trip to UDA Holdings 2023</div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Vice Event Director</div>
+                    <div class="leadership-title">Industrial Trip to HeiTech Padu Berhad 2024</div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Vice Event Director I</div>
+                    <div class="leadership-title">Service-Learning Malaysia – University for Society 2025: Ethics in Digital Platform (Click with Care)</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Oversaw planning and coordination of the program, involving an estimated 300 committee members across multiple departments</li>
+                            <li>Led protocol management and supervised workshop execution, ensuring smooth operations and alignment with service-learning objectives</li>
+                            <li>Handled all official documentation, including records of meetings, reports, and correspondence to maintain transparency and organization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Vice Secretary</div>
+                    <div class="leadership-title">Data Mining and Artificial Intelligence Exhibition (March - August 2025)</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Assisted in organizing and coordinating the exhibition, supporting communication between committees and stakeholders</li>
+                            <li>Managed documentation, including meeting minutes, correspondence, and event reports to ensure accurate records and smooth information flow</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-role">Vice Event Director</div>
+                    <div class="leadership-title">UiTM Cawangan Melaka and Talentbank Career Fair 2025</div>
+                    <div class="leadership-desc">
+                        <ul>
+                            <li>Assisted in planning, organizing, and managing the Talentbank Career Fair 2025, coordinating with multiple stakeholders to ensure event success</li>
+                            <li>Supported the Event Director in overseeing logistics, volunteer coordination, and on-site event operations for UiTM Melaka Branch</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Part-Time Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-title">Part-Time Crew - Food & Beverage Industry</div>
+                <div class="experience-company">MMM Pizza</div>
+                <div class="experience-date">2022</div>
+                <ul>
+                    <li>Provided customer service, handled order processing, and ensured cleanliness and efficiency in food preparation and dining areas</li>
+                    <li>Operated cash register, managed transactions, and maintained a friendly and professional environment under high-pressure conditions</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">Part-Time Assistant - Real Estate Documentation</div>
+                <div class="experience-company">Private Real Estate Business</div>
+                <div class="experience-date">2024</div>
+                <ul>
+                    <li>Maintained accurate records and handled data entry to streamline property transactions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" id="connect">
+            <h2>Connect With Me</h2>
+            <div class="social-links">
+                <a href="mailto:nurinfaqihahzmri@gmail.com" class="social-btn">Email Me</a>
+                <a href="tel:+60114013 2691" class="social-btn">Call Me</a>
+                <a href="#" class="social-btn">LinkedIn</a>
+                <a href="#" class="social-btn">Download CV</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Nurin Faqihah Binti Mohd Zamri. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.remove('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('navMenu');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            if (!event.target.closest('nav')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
