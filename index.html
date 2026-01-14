@@ -138,7 +138,13 @@
     .contact-item {
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 8px;
+    }
+
+    .contact-item img {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1);
     }
 
     .card {
@@ -185,6 +191,45 @@
         padding: 20px;
         border-radius: 10px;
         margin-bottom: 20px;
+    }
+
+    .edu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .edu-content {
+        flex: 1;
+    }
+
+    .pdf-icon {
+        background: var(--light);
+        width: 45px;
+        height: 45px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.3s;
+        flex-shrink: 0;
+        text-decoration: none;
+        border: 2px solid var(--accent);
+        padding: 8px;
+    }
+
+    .pdf-icon img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .pdf-icon:hover {
+        background: var(--primary);
+        border: 2px solid var(--primary);
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(38, 66, 139, 0.3);
     }
 
     .edu-title,
@@ -356,6 +401,14 @@
             padding: 15px 20px;
             border-radius: 0;
         }
+
+        .edu-header {
+            flex-direction: column;
+        }
+
+        .pdf-icon {
+            align-self: flex-start;
+        }
     }
     </style>
 </head>
@@ -382,9 +435,18 @@
             <h1>Nurin Faqihah Binti Mohd Zamri</h1>
             <p class="tagline">Web Developer | Quality Assurance | Information Systems Engineering</p>
             <div class="contact-info">
-                <div class="contact-item">📍 Seri Kembangan, Selangor</div>
-                <div class="contact-item">📧 nurinfaqihahzmri@gmail.com</div>
-                <div class="contact-item">📱 +6011-4013 2691</div>
+                <div class="contact-item">
+                    <img src="icon/location.png" alt="Location">
+                    <span>Seri Kembangan, Selangor</span>
+                </div>
+                <div class="contact-item">
+                    <img src="icon/email.png" alt="Email">
+                    <span>nurinfaqihahzmri@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <img src="icon/contact.png" alt="Phone">
+                    <span>+6011-4013 2691</span>
+                </div>
             </div>
         </header>
 
@@ -412,26 +474,54 @@
             <h2>Education</h2>
             
             <div class="education-item">
-                <div class="edu-title">Bachelor of Information System (Hons.) Information System Engineering</div>
-                <div class="edu-institution">University of Technology MARA (UiTM) Jasin Melaka</div>
-                <div class="edu-details">CGPA: 3.32 | 2022 - Present</div>
+                <div class="edu-header">
+                    <div class="edu-content">
+                        <div class="edu-title">Bachelor of Information System (Hons.) Information System Engineering</div>
+                        <div class="edu-institution">University of Technology MARA (UiTM) Jasin Melaka</div>
+                        <div class="edu-details">CGPA: 3.32 | 2022 - Present</div>
+                    </div>
+                    <a href="document/bachelor.pdf" target="_blank" class="pdf-icon" title="View Certificate">
+                        <img src="icon/certificate.png" alt="Certificate">
+                    </a>
+                </div>
             </div>
 
             <div class="education-item">
-                <div class="edu-title">Life Science</div>
-                <div class="edu-institution">Johor Matriculation College</div>
-                <div class="edu-details">CGPA: 3.46 | 2020 - 2022</div>
+                <div class="edu-header">
+                    <div class="edu-content">
+                        <div class="edu-title">Life Science</div>
+                        <div class="edu-institution">Johor Matriculation College</div>
+                        <div class="edu-details">CGPA: 3.46 | 2020 - 2022</div>
+                    </div>
+                    <a href="document/matriks.pdf" target="_blank" class="pdf-icon" title="View Certificate">
+                        <img src="icon/certificate.png" alt="Certificate">
+                    </a>
+                </div>
             </div>
 
             <div class="education-item">
-                <div class="edu-title">Sijil Pelajaran Malaysia (SPM)</div>
-                <div class="edu-institution">Sekolah Menengah Kebangsaan Air Tawar, Kota Tinggi, Johor</div>
-                <div class="edu-details">5A | 2014 - 2019</div>
+                <div class="edu-header">
+                    <div class="edu-content">
+                        <div class="edu-title">Sijil Pelajaran Malaysia (SPM)</div>
+                        <div class="edu-institution">Sekolah Menengah Kebangsaan Air Tawar, Kota Tinggi, Johor</div>
+                        <div class="edu-details">5A | 2014 - 2019</div>
+                    </div>
+                    <a href="document/spm.pdf" target="_blank" class="pdf-icon" title="View Certificate">
+                        <img src="icon/certificate.png" alt="Certificate">
+                    </a>
+                </div>
             </div>
 
             <div class="education-item">
-                <div class="edu-title">Malaysian University English Test</div>
-                <div class="edu-details">Band 4 | 2021</div>
+                <div class="edu-header">
+                    <div class="edu-content">
+                        <div class="edu-title">Malaysian University English Test</div>
+                        <div class="edu-details">Band 4 | 2021</div>
+                    </div>
+                    <a href="document/muet.pdf" target="_blank" class="pdf-icon" title="View Certificate">
+                        <img src="icon/certificate.png" alt="Certificate">
+                    </a>
+                </div>
             </div>
         </div>
 
